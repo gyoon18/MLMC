@@ -1,0 +1,2 @@
+class MlmcController < ApplicationController
+end
