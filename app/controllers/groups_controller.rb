@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
 
     if @group.update(opportunity_params)
-      redirect_to '/dashboard', :notice => "You post has been updated."
+      redirect_to '/dashboard', :notice => "You group has been updated."
     else
       render 'edit'
     end
