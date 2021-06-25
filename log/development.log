@@ -1321,3 +1321,1013 @@ Migrating to RemoveLocationFromGroups (20210622195339)
   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/groups/new" for ::1 at 2021-06-23 07:06:46 -0400
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 6 pending migrations:
+
+20210617182131_create_users.rb
+20210622183555_create_groups.rb
+20210622195254_remove_date_from_groups.rb
+20210622195312_remove_time_from_groups.rb
+20210622195339_remove_location_from_groups.rb
+20210622195700_create_events.rb
+
+
+):
+  
+activerecord (6.1.3.2) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.3.2) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.3.2) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (6.1.3.2) lib/active_record/migration.rb:595:in `block in call'
+activerecord (6.1.3.2) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.3.2) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.2) lib/mini_profiler/profiler.rb:384:in `call'
+webpacker (5.4.0) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.3.2) lib/rails/engine.rb:539:in `call'
+puma (5.3.2) lib/puma/configuration.rb:249:in `call'
+puma (5.3.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.3.2) lib/puma/thread_pool.rb:338:in `with_force_shutdown'
+puma (5.3.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.3.2) lib/puma/server.rb:438:in `process_client'
+puma (5.3.2) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started POST "/rails/actions" for ::1 at 2021-06-23 07:06:49 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20210617182131)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "role" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210617182131"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateGroups (20210622183555)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "groups" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "mentor" varchar, "date" varchar, "time" varchar, "location" varchar, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210622183555"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to RemoveDateFromGroups (20210622195254)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agroups" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "mentor" varchar DEFAULT NULL, "date" varchar DEFAULT NULL, "time" varchar DEFAULT NULL, "location" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "agroups" ("id","name","mentor","date","time","location","description","created_at","updated_at")
+                     SELECT "id","name","mentor","date","time","location","description","created_at","updated_at" FROM "groups"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "groups"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "groups" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "mentor" varchar DEFAULT NULL, "time" varchar DEFAULT NULL, "location" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "groups" ("id","name","mentor","time","location","description","created_at","updated_at")
+                     SELECT "id","name","mentor","time","location","description","created_at","updated_at" FROM "agroups"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agroups"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210622195254"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to RemoveTimeFromGroups (20210622195312)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agroups" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "mentor" varchar DEFAULT NULL, "time" varchar DEFAULT NULL, "location" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "agroups" ("id","name","mentor","time","location","description","created_at","updated_at")
+                     SELECT "id","name","mentor","time","location","description","created_at","updated_at" FROM "groups"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "groups"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "groups" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "mentor" varchar DEFAULT NULL, "location" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("id","name","mentor","location","description","created_at","updated_at")
+                     SELECT "id","name","mentor","location","description","created_at","updated_at" FROM "agroups"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "agroups"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210622195312"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to RemoveLocationFromGroups (20210622195339)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agroups" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "mentor" varchar DEFAULT NULL, "location" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "agroups" ("id","name","mentor","location","description","created_at","updated_at")
+                     SELECT "id","name","mentor","location","description","created_at","updated_at" FROM "groups"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "groups"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "groups" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "mentor" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "groups" ("id","name","mentor","description","created_at","updated_at")
+                     SELECT "id","name","mentor","description","created_at","updated_at" FROM "agroups"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agroups"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210622195339"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateEvents (20210622195700)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" varchar, "time" varchar, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210622195700"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-23 11:06:49.883898"], ["updated_at", "2021-06-23 11:06:49.883898"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/groups/new" for ::1 at 2021-06-23 07:06:49 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GroupsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/new.html.erb within layouts/application (Duration: 87.2ms | Allocations: 22590)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/gyoon18_1/MLMC/public/packs
+[Webpacker] Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+
+[Webpacker] Hash: e332c6419728fac579d5
+Version: webpack 4.46.0
+Time: 1316ms
+Built at: 23/06/2021 07:06:54
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-f826770d917d8a37c1d8.js    125 KiB  application  [emitted] [immutable]  application
+js/application-f826770d917d8a37c1d8.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-f826770d917d8a37c1d8.js js/application-f826770d917d8a37c1d8.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 4130.8ms | Allocations: 52890)
+Completed 200 OK in 4155ms (Views: 4133.4ms | ActiveRecord: 0.8ms | Allocations: 59833)
+
+
+Started GET "/task" for ::1 at 2021-06-23 07:06:58 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/task"):
+  
+Started GET "/tasks" for ::1 at 2021-06-23 07:07:00 -0400
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 131)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 4072)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 5301)
+
+
+Started GET "/tasks" for ::1 at 2021-06-23 07:18:32 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20210623111643_create_tasks.rb
+
+
+):
+  
+activerecord (6.1.3.2) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.3.2) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.3.2) lib/active_support/file_update_checker.rb:83:in `execute'
+activesupport (6.1.3.2) lib/active_support/file_update_checker.rb:93:in `execute_if_updated'
+activerecord (6.1.3.2) lib/active_record/migration.rb:597:in `block in call'
+activerecord (6.1.3.2) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.3.2) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.2) lib/mini_profiler/profiler.rb:384:in `call'
+webpacker (5.4.0) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.3.2) lib/rails/engine.rb:539:in `call'
+puma (5.3.2) lib/puma/configuration.rb:249:in `call'
+puma (5.3.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.3.2) lib/puma/thread_pool.rb:338:in `with_force_shutdown'
+puma (5.3.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.3.2) lib/puma/server.rb:438:in `process_client'
+puma (5.3.2) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started POST "/rails/actions" for ::1 at 2021-06-23 07:18:34 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTasks (20210623111643)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "date" varchar, "time" varchar, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210623111643"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/tasks" for ::1 at 2021-06-23 07:18:34 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 131)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4207)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 5682)
+
+
+Started GET "/tasks" for ::1 at 2021-06-23 07:18:37 -0400
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 36)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 3688)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 4185)
+
+
+Started GET "/tasks" for ::1 at 2021-06-23 07:24:00 -0400
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 55)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3934)
+Completed 200 OK in 8ms (Views: 7.1ms | Allocations: 4713)
+
+
+Started GET "/tasks/new" for ::1 at 2021-06-23 07:24:03 -0400
+Processing by TasksController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:6:in `new'
+Completed 406 Not Acceptable in 11ms (ActiveRecord: 1.0ms | Allocations: 6735)
+
+
+  
+ActionController::MissingExactTemplate (TasksController#new is missing a template for request formats: text/html):
+  
+actionpack (6.1.3.2) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.1.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+<internal:kernel>:90:in `tap'
+actionpack (6.1.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.1.3.2) lib/abstract_controller/base.rb:228:in `process_action'
+actionpack (6.1.3.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.1.3.2) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.1.3.2) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+actiontext (6.1.3.2) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (6.1.3.2) lib/action_text/engine.rb:55:in `block (4 levels) in <class:Engine>'
+activesupport (6.1.3.2) lib/active_support/callbacks.rb:126:in `instance_exec'
+activesupport (6.1.3.2) lib/active_support/callbacks.rb:126:in `block in run_callbacks'
+activesupport (6.1.3.2) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.3.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.3.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.3.2) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.3.2) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.3.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.3.2) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.3.2) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.3.2) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.3.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.3.2) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.3.2) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.3.2) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.3.2) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.2) lib/mini_profiler/profiler.rb:384:in `call'
+webpacker (5.4.0) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.3.2) lib/rails/engine.rb:539:in `call'
+puma (5.3.2) lib/puma/configuration.rb:249:in `call'
+puma (5.3.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.3.2) lib/puma/thread_pool.rb:338:in `with_force_shutdown'
+puma (5.3.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.3.2) lib/puma/server.rb:438:in `process_client'
+puma (5.3.2) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started GET "/tasks/new" for ::1 at 2021-06-23 07:25:33 -0400
+Processing by TasksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 132)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 4206)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 5609)
+
+
+Started GET "/tasks/new" for ::1 at 2021-06-23 07:27:48 -0400
+Processing by TasksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1790)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1864)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 3226)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass):
+    1: <div class='section'>
+    2:     <%= simple_form_for @event do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :title, placeholder: "Task Name", label: false, input_html: { class: 'form-style' }%>
+  
+app/views/tasks/new.html.erb:2
+Started GET "/tasks/new" for ::1 at 2021-06-23 07:28:46 -0400
+Processing by TasksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 7045)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 10974)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.0ms | Allocations: 12387)
+
+
+Started GET "/tasks/new" for ::1 at 2021-06-23 07:31:38 -0400
+Processing by TasksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 6357)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 10273)
+Completed 200 OK in 17ms (Views: 15.9ms | Allocations: 11675)
+
+
+Started POST "/tasks" for ::1 at 2021-06-23 07:32:34 -0400
+Processing by TasksController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"title"=>"Test Task", "date"=>"2021/06/23", "time"=>"7:32 AM", "description"=>"Test task content"}, "commit"=>"Create Task"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "date", "time", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Test Task"], ["date", "2021/06/23"], ["time", "7:32 AM"], ["description", "Test task content"], ["created_at", "2021-06-23 11:32:34.803123"], ["updated_at", "2021-06-23 11:32:34.803123"]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 10ms (ActiveRecord: 1.6ms | Allocations: 3460)
+
+
+Started GET "/dashboard" for ::1 at 2021-06-23 07:32:34 -0400
+Processing by MlmcController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering mlmc/index.html.erb within layouts/application
+  Rendered mlmc/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 144)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 3987)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 5142)
+
+
+Started GET "/tasks/edit" for ::1 at 2021-06-23 07:34:58 -0400
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:16:in `show'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:16:in `show'
+Completed 404 Not Found in 6ms (ActiveRecord: 0.9ms | Allocations: 3547)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=edit):
+  
+app/controllers/tasks_controller.rb:16:in `show'
+Started GET "/tasks/" for ::1 at 2021-06-23 07:35:06 -0400
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 130)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4030)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 4894)
+
+
+Started GET "/tasks/destroy" for ::1 at 2021-06-23 07:35:32 -0400
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"destroy"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:16:in `show'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:16:in `show'
+Completed 404 Not Found in 7ms (ActiveRecord: 1.6ms | Allocations: 3494)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=destroy):
+  
+app/controllers/tasks_controller.rb:16:in `show'
+Started GET "/tasks/edit" for ::1 at 2021-06-23 07:35:35 -0400
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:16:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1148)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=edit):
+  
+app/controllers/tasks_controller.rb:16:in `show'
+Started GET "/tasks/new" for ::1 at 2021-06-23 07:35:37 -0400
+Processing by TasksController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 6640)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 10398)
+Completed 200 OK in 20ms (Views: 15.4ms | ActiveRecord: 0.0ms | Allocations: 13798)
+
+
+Started GET "/tasks/show" for ::1 at 2021-06-23 07:35:41 -0400
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:16:in `show'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1212)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=show):
+  
+app/controllers/tasks_controller.rb:16:in `show'
+Started GET "/tasks/show" for ::1 at 2021-06-23 08:45:23 -0400
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:17:in `show'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:17:in `show'
+Completed 404 Not Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3051)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=show):
+  
+app/controllers/tasks_controller.rb:17:in `show'
+Started GET "/tasks/" for ::1 at 2021-06-23 08:45:26 -0400
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1159)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1234)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2646)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1 class="title"> Tasks <h1>
+
+<section class = "section">
+    <div class="container">
+        <% @tasks.each do |task| %>
+            <div class="card">
+                <div class="card-content">
+                    <div class="media">
+                </div>
+            </div>
+    </div>
+</section>
+):
+1:    <h1 class="title"> Tasks <h1>
+2:    
+3:    <section class = "section">
+4:        <div class="container">
+5:            <% @tasks.each do |task| %>
+6:                <div class="card">
+7:                    <div class="card-content">
+8:                        <div class="media">
+9:                    </div>
+10:                </div>
+11:        </div>
+12:    </section>
+  
+app/views/tasks/index.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/tasks/" for ::1 at 2021-06-23 08:45:41 -0400
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1147)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1222)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2615)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1 class="title"> Tasks <h1>
+
+<section class = "section">
+    <div class="container">
+        <% @tasks.each do |task| %>
+            <div class="card">
+                <div class="card-content">
+                    <div class="media">
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+):
+1:    <h1 class="title"> Tasks <h1>
+2:    
+3:    <section class = "section">
+4:        <div class="container">
+5:            <% @tasks.each do |task| %>
+6:                <div class="card">
+7:                    <div class="card-content">
+8:                        <div class="media">
+9:                        </div>
+10:                    </div>
+11:                </div>
+12:        </div>
+13:    </section>
+  
+app/views/tasks/index.html.erb:15: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:15: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:15: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:15: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:15: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:15: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/tasks/" for ::1 at 2021-06-23 08:46:51 -0400
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1165)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1240)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2633)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1 class="title"> Tasks <h1>
+
+<section class = "section">
+    <div class="container">
+        <% @tasks.each do |task| %>
+            <div class="card">
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="title is-4"> <%= post title %> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+):
+1:    <h1 class="title"> Tasks <h1>
+2:    
+3:    <section class = "section">
+4:        <div class="container">
+5:            <% @tasks.each do |task| %>
+6:                <div class="card">
+7:                    <div class="card-content">
+8:                        <div class="media">
+9:                            <div class="media-content">
+10:                                <p class="title is-4"> <%= post title %> </p>
+11:                            </div>
+12:                        </div>
+13:                    </div>
+14:                </div>
+15:        </div>
+16:    </section>
+  
+app/views/tasks/index.html.erb:18: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:18: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:18: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:18: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:18: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:18: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/tasks/" for ::1 at 2021-06-23 08:48:44 -0400
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1183)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1258)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2651)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1 class="title"> Tasks <h1>
+
+<section class = "section">
+    <div class="container">
+        <% @tasks.each do |task| %>
+            <div class="card">
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="title is-4"> <%= task title %> </p>
+                        </div>
+                    </div>
+                <div class="content">
+                    <%= task.content %>
+                </div>
+        </div>
+    </div>
+</section>
+):
+1:    <h1 class="title"> Tasks <h1>
+2:    
+3:    <section class = "section">
+4:        <div class="container">
+5:            <% @tasks.each do |task| %>
+6:                <div class="card">
+7:                    <div class="card-content">
+8:                        <div class="media">
+9:                            <div class="media-content">
+10:                                <p class="title is-4"> <%= task title %> </p>
+11:                            </div>
+12:                        </div>
+13:                    <div class="content">
+14:                        <%= task.content %>
+15:                    </div>
+16:            </div>
+17:        </div>
+18:    </section>
+  
+app/views/tasks/index.html.erb:20: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:20: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:20: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:20: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:20: syntax error, unexpected end-of-input, expecting `end'
+app/views/tasks/index.html.erb:20: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/tasks/" for ::1 at 2021-06-23 08:50:34 -0400
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at DESC[0m
+  ↳ app/views/tasks/index.html.erb:5
+  Rendered tasks/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 7871)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 7945)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.2ms | Allocations: 9332)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `title' for #<ActionView::Base:0x00000000015c98>):
+     7:                 <div class="card-content">
+     8:                     <div class="media">
+     9:                         <div class="media-content">
+    10:                             <p class="title is-4"> <%= task title %> </p>
+    11:                         </div>
+    12:                     </div>
+    13:                 <div class="content">
+  
+app/views/tasks/index.html.erb:10
+app/views/tasks/index.html.erb:5
+Started GET "/tasks/" for ::1 at 2021-06-23 08:58:05 -0400
+Processing by TasksController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at DESC[0m
+  ↳ app/views/tasks/index.html.erb:5
+  Rendered tasks/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 5139)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 5213)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.6ms | Allocations: 7224)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `title' for #<ActionView::Base:0x00000000016148>):
+     7:                 <div class="card-content">
+     8:                     <div class="media">
+     9:                         <div class="media-content">
+    10:                             <p class="title is-4"> <%= task title %> </p>
+    11:                         </div>
+    12:                     </div>
+    13:                 <div class="content">
+  
+app/views/tasks/index.html.erb:10
+app/views/tasks/index.html.erb:5
+Started GET "/tasks/" for ::1 at 2021-06-23 08:59:38 -0400
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at DESC[0m
+  ↳ app/views/tasks/index.html.erb:5
+  Rendered tasks/index.html.erb within layouts/application (Duration: 8.6ms | Allocations: 4292)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 4366)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.4ms | Allocations: 5749)
+
+
+  
+ActionView::Template::Error (undefined method `content' for #<Task id: 1, title: "Test Task", date: "2021/06/23", time: "7:32 AM", description: "Test task content", created_at: "2021-06-23 11:32:34.803123000 +0000", updated_at: "2021-06-23 11:32:34.803123000 +0000">):
+    11:                         </div>
+    12:                     </div>
+    13:                 <div class="content">
+    14:                     <%= task.content %>
+    15:                 </div>
+    16:             </div>
+    17:         </div>
+  
+app/views/tasks/index.html.erb:14
+app/views/tasks/index.html.erb:5
+Started GET "/tasks/" for ::1 at 2021-06-23 08:59:40 -0400
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at DESC[0m
+  ↳ app/views/tasks/index.html.erb:5
+  Rendered tasks/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 3732)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 3800)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms | Allocations: 4313)
+
+
+  
+ActionView::Template::Error (undefined method `content' for #<Task id: 1, title: "Test Task", date: "2021/06/23", time: "7:32 AM", description: "Test task content", created_at: "2021-06-23 11:32:34.803123000 +0000", updated_at: "2021-06-23 11:32:34.803123000 +0000">):
+    11:                         </div>
+    12:                     </div>
+    13:                 <div class="content">
+    14:                     <%= task.content %>
+    15:                 </div>
+    16:             </div>
+    17:         </div>
+  
+app/views/tasks/index.html.erb:14
+app/views/tasks/index.html.erb:5
+Started GET "/tasks/" for ::1 at 2021-06-23 08:59:55 -0400
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY created_at DESC[0m
+  ↳ app/views/tasks/index.html.erb:5
+  Rendered tasks/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1099)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 5157)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.2ms | Allocations: 6509)
+
+
+Started GET "/tasks/1" for ::1 at 2021-06-23 08:59:58 -0400
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:17:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 3179)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 3254)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 4474)
+
+
+  
+ActionView::Template::Error (undefined method `content' for #<Task id: 1, title: "Test Task", date: "2021/06/23", time: "7:32 AM", description: "Test task content", created_at: "2021-06-23 11:32:34.803123000 +0000", updated_at: "2021-06-23 11:32:34.803123000 +0000">):
+    4:             <%= @task.title%>
+    5:         </h1>
+    6:         <div class="content">
+    7:          <%= @task.content %>
+    8:         </div>
+    9:     </div>
+   10: </section>
+  
+app/views/tasks/show.html.erb:7
+Started GET "/tasks/1" for ::1 at 2021-06-23 09:00:12 -0400
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:17:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 192)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4264)
+Completed 200 OK in 13ms (Views: 9.3ms | ActiveRecord: 0.3ms | Allocations: 6138)
+
+
+Started GET "/tasks/1" for ::1 at 2021-06-23 09:13:21 -0400
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:17:in `show'
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:17:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 196)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 44.8ms | Allocations: 17634)
+Completed 200 OK in 57ms (Views: 46.8ms | ActiveRecord: 0.6ms | Allocations: 24187)
+
+
+Started GET "/" for ::1 at 2021-06-23 09:13:24 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 407)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4327)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 5544)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateResources (20210623132133)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "resources" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" varchar, "time" varchar, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210623132133"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-06-23 09:33:50 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 386)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 4470)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 5947)
+
+
+Started GET "/resources" for ::1 at 2021-06-23 09:33:54 -0400
+Processing by ResourcesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering resources/index.html.erb within layouts/application
+  Rendered resources/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1616)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1690)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 3504)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    2: 
+    3: <section class="section">
+    4:     <div class="container">
+    5:         <% @resources.each do |resource| %>
+    6:             <div class="card">
+    7:                 <div class="card-content">
+    8:                     <div class="media">
+  
+app/views/resources/index.html.erb:5
+Started GET "/resource" for ::1 at 2021-06-23 09:33:58 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/resource"):
+  
+Started GET "/resources" for ::1 at 2021-06-23 09:34:46 -0400
+Processing by ResourcesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/resources_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering resources/index.html.erb within layouts/application
+  Rendered resources/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1412)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1486)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms | Allocations: 3555)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    2: 
+    3: <section class="section">
+    4:     <div class="container">
+    5:         <% @resources.each do |resource| %>
+    6:             <div class="card">
+    7:                 <div class="card-content">
+    8:                     <div class="media">
+  
+app/views/resources/index.html.erb:5
+Started GET "/resources" for ::1 at 2021-06-23 09:36:14 -0400
+Processing by ResourcesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/resources_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (0.2ms)[0m  [1m[34mSELECT "resources".* FROM "resources" ORDER BY created_at DESC[0m
+  ↳ app/views/resources/index.html.erb:5
+  Rendered resources/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1032)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 5136)
+Completed 200 OK in 15ms (Views: 10.4ms | ActiveRecord: 0.8ms | Allocations: 7931)
+
+
+Started GET "/resources/new" for ::1 at 2021-06-23 09:36:17 -0400
+Processing by ResourcesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/new.html.erb within layouts/application (Duration: 12.6ms | Allocations: 6951)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 10560)
+Completed 200 OK in 25ms (Views: 19.5ms | ActiveRecord: 0.7ms | Allocations: 14650)
+
+
