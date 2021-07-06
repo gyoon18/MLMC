@@ -13,13 +13,12 @@ class UsersController < ApplicationController
 			flash[:register_errors] = user.errors.full_messages
 			redirect_to '/'
 		end
-
 	end
-
+	
 	private
-		def user_params
-			params.require(:user).permit(:name, :email, :role, :password, :password_confirmation)
-		end
+	def user_params
+		params.require(:user).permit(:name, :email, :role, :password, :password_confirmation)
+	end
 
 
 

@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.save
-    redirect_to '/dashboard'
+    redirect_to '/events'
   end
 
   def show
