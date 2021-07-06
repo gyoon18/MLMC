@@ -1,10 +1,1 @@
-<section class="section">
-    <div class="container">
-        <h1 class="title">
-            <%= @task.title%>
-        </h1>
-        <div class="description">
-         <%= @task.description %>
-        </div>
-    </div>
-</section>
+<%= link_to 'Download', @task.file, download: '' %>
