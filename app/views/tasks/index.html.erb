@@ -21,3 +21,22 @@
     </div>
   </div>
 </div>
+
+<% #Adding Links %>
+
+<div class="field">
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+</div>
+<div class="field">
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+</div>
+<div class="field">
+  <%= form.label :file %>
+  <%= form.file_field :file %>
+</div>
+<div class="action">
+  <%= form.submit %>
+</div>
+<% end %>
