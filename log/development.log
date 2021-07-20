@@ -7716,3 +7716,1408 @@ Completed 200 OK in 122ms (Views: 113.7ms | ActiveRecord: 0.0ms | Allocations: 5
 >>>>>>> 3d28d49d0b34f03bf681f480d1c683a135b26270
 
 
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateActiveStorageTables (20210706013351)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar NOT NULL, "created_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" integer NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210706013351"]]
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/calendars" for ::1 at 2021-07-06 11:31:56 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/calendars"):
+  
+Started GET "/calendars" for ::1 at 2021-07-06 11:32:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/calendars"):
+  
+Started GET "/calendars" for ::1 at 2021-07-06 11:33:02 -0400
+Processing by CalendarsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/index.html.erb within layouts/application
+  Rendered calendars/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 134)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6626.7ms | Allocations: 52716)
+Completed 200 OK in 6648ms (Views: 6629.8ms | Allocations: 57030)
+
+
+Started GET "/" for ::1 at 2021-07-06 11:33:16 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 409)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | Allocations: 4679)
+Completed 200 OK in 35ms (Views: 32.5ms | Allocations: 5892)
+
+
+Started POST "/sessions" for ::1 at 2021-07-06 11:33:22 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "login"=>{"email"=>"r@r.com", "password"=>"[FILTERED]"}, "submit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "r@r.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 347ms (ActiveRecord: 2.2ms | Allocations: 9308)
+
+
+Started GET "/dashboard" for ::1 at 2021-07-06 11:33:22 -0400
+Processing by MlmcController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering mlmc/index.html.erb within layouts/application
+  Rendered mlmc/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 261)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 4520)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.0ms | Allocations: 5672)
+
+
+Started GET "/events" for ::1 at 2021-07-06 11:33:24 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:10
+  Rendered events/index.html.erb within layouts/application (Duration: 28.2ms | Allocations: 4741)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 49.3ms | Allocations: 9016)
+Completed 200 OK in 57ms (Views: 50.9ms | ActiveRecord: 1.6ms | Allocations: 10565)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 11:33:25 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+Redirected to http://localhost:3000/calendar#new
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms | Allocations: 1732)
+
+
+Started GET "/calendar" for ::1 at 2021-07-06 11:33:25 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/calendar"):
+  
+Started GET "/calendar" for ::1 at 2021-07-06 11:33:32 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/calendar"):
+  
+Started GET "/calendar" for ::1 at 2021-07-06 11:41:16 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/calendar"):
+  
+Started GET "/calendars" for ::1 at 2021-07-06 11:41:28 -0400
+Processing by CalendarsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/index.html.erb within layouts/application
+  Rendered calendars/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 57)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 88.8ms | Allocations: 4327)
+Completed 200 OK in 105ms (Views: 91.1ms | Allocations: 5888)
+
+
+Started GET "/calendars/new" for ::1 at 2021-07-06 11:43:07 -0400
+Processing by CalendarsController#new as HTML
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/calendars_controller.rb:7:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 90.6ms | Allocations: 10434)
+  Rendered layout layouts/application.html.erb (Duration: 91.1ms | Allocations: 10512)
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 3.2ms | Allocations: 15860)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass):
+    1: <div class='section'>
+    2:     <%= simple_form_for @event do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: "Event Name", label: false, input_html: { class: 'form-style' }%>
+  
+app/views/calendars/new.html.erb:2
+Started GET "/calendars/new" for ::1 at 2021-07-06 13:09:26 -0400
+Processing by CalendarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 20.3ms | Allocations: 1750)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 1824)
+Completed 500 Internal Server Error in 49ms (Allocations: 3201)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for nil:NilClass):
+    1: <div class='section'>
+    2:     <%= simple_form_for @event do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: "Event Name", label: false, input_html: { class: 'form-style' }%>
+  
+app/views/calendars/new.html.erb:2
+Started GET "/calendars/new" for ::1 at 2021-07-06 13:09:50 -0400
+Processing by CalendarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 133)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 30.9ms | Allocations: 4615)
+Completed 200 OK in 38ms (Views: 34.5ms | Allocations: 6023)
+
+
+Started GET "/calendars/new" for ::1 at 2021-07-06 13:10:10 -0400
+Processing by CalendarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 129.9ms | Allocations: 13337)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 197.5ms | Allocations: 17688)
+Completed 200 OK in 204ms (Views: 201.3ms | Allocations: 19087)
+
+
+Started GET "/calendars/new" for ::1 at 2021-07-06 13:27:30 -0400
+Processing by CalendarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 19.8ms | Allocations: 1889)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 1963)
+Completed 500 Internal Server Error in 54ms (Allocations: 3357)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2:     <%= simple_form_for @calendar do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: @userEvent.name, label: false, input_html: { class: 'form-style' }%>
+    6:             </div>
+    7:         </div>
+    8:         <div class='field'>
+  
+app/views/calendars/new.html.erb:5
+app/views/calendars/new.html.erb:2
+Started GET "/" for ::1 at 2021-07-06 13:27:44 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 384)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 32.1ms | Allocations: 4802)
+Completed 200 OK in 36ms (Views: 34.8ms | Allocations: 6011)
+
+
+Started POST "/sessions" for ::1 at 2021-07-06 13:27:51 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "login"=>{"email"=>"r@r.com", "password"=>"[FILTERED]"}, "submit"=>"Submit"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "r@r.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 426ms (ActiveRecord: 4.9ms | Allocations: 7789)
+
+
+Started GET "/dashboard" for ::1 at 2021-07-06 13:27:51 -0400
+Processing by MlmcController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering mlmc/index.html.erb within layouts/application
+  Rendered mlmc/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 253)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 147.3ms | Allocations: 4512)
+Completed 200 OK in 164ms (Views: 162.4ms | ActiveRecord: 0.0ms | Allocations: 5661)
+
+
+Started GET "/events" for ::1 at 2021-07-06 13:27:53 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:10
+  Rendered events/index.html.erb within layouts/application (Duration: 25.5ms | Allocations: 4588)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 49.4ms | Allocations: 8865)
+Completed 200 OK in 57ms (Views: 52.3ms | ActiveRecord: 1.6ms | Allocations: 10424)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 13:27:54 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+Redirected to http://localhost:3000/calendars#new
+Completed 302 Found in 8ms (ActiveRecord: 0.5ms | Allocations: 1703)
+
+
+Started GET "/calendars" for ::1 at 2021-07-06 13:27:54 -0400
+Processing by CalendarsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/index.html.erb within layouts/application
+  Rendered calendars/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 96)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 4214)
+Completed 200 OK in 36ms (Views: 33.9ms | ActiveRecord: 0.0ms | Allocations: 4820)
+
+
+Started GET "/events" for ::1 at 2021-07-06 13:28:10 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/events/index.html.erb:10
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:10
+  Rendered events/index.html.erb within layouts/application (Duration: 16.3ms | Allocations: 5347)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 91.1ms | Allocations: 9640)
+Completed 200 OK in 97ms (Views: 93.4ms | ActiveRecord: 3.2ms | Allocations: 10976)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 13:28:11 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+Redirected to http://localhost:3000/calendars/new
+Completed 302 Found in 48ms (ActiveRecord: 6.2ms | Allocations: 7418)
+
+
+Started GET "/calendars/new" for ::1 at 2021-07-06 13:28:11 -0400
+Processing by CalendarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1686)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 1760)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 1.0ms | Allocations: 6650)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2:     <%= simple_form_for @calendar do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: @userEvent.name, label: false, input_html: { class: 'form-style' }%>
+    6:             </div>
+    7:         </div>
+    8:         <div class='field'>
+  
+app/views/calendars/new.html.erb:5
+app/views/calendars/new.html.erb:2
+Started GET "/calendars/new" for ::1 at 2021-07-06 13:37:13 -0400
+Processing by CalendarsController#new as HTML
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/calendars_controller.rb:7:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 1666)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 1740)
+Completed 500 Internal Server Error in 128ms (ActiveRecord: 15.2ms | Allocations: 7391)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2:     <%= simple_form_for @calendar do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: @userEvent.name, label: false, input_html: { class: 'form-style' }%>
+    6:             </div>
+    7:         </div>
+    8:         <div class='field'>
+  
+app/views/calendars/new.html.erb:5
+app/views/calendars/new.html.erb:2
+Started GET "/events" for ::1 at 2021-07-06 13:37:23 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (2.6ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:10
+  Rendered events/index.html.erb within layouts/application (Duration: 30.1ms | Allocations: 3963)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 73.5ms | Allocations: 8256)
+Completed 200 OK in 79ms (Views: 72.6ms | ActiveRecord: 2.6ms | Allocations: 9371)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 13:37:24 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (16.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+Redirected to http://localhost:3000/calendars/new
+Completed 302 Found in 50ms (ActiveRecord: 17.1ms | Allocations: 7018)
+
+
+Started GET "/calendars/new" for ::1 at 2021-07-06 13:37:25 -0400
+Processing by CalendarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1554)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 1623)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2127)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2:     <%= simple_form_for @calendar do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: @userEvent.name, label: false, input_html: { class: 'form-style' }%>
+    6:             </div>
+    7:         </div>
+    8:         <div class='field'>
+  
+app/views/calendars/new.html.erb:5
+app/views/calendars/new.html.erb:2
+Started GET "/calendars/new" for ::1 at 2021-07-06 13:39:17 -0400
+Processing by CalendarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1508)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1576)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1999)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2:     <%= simple_form_for @calendar do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: @userEvent.name, label: false, input_html: { class: 'form-style' }%>
+    6:             </div>
+    7:         </div>
+    8:         <div class='field'>
+  
+app/views/calendars/new.html.erb:5
+app/views/calendars/new.html.erb:2
+Started GET "/calendars/new" for ::1 at 2021-07-06 13:43:15 -0400
+Processing by CalendarsController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/calendars_controller.rb:7:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1946)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 2020)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 2.1ms | Allocations: 8359)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2:     <%= simple_form_for @calendar do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: $userEvent.name, label: false, input_html: { class: 'form-style' }%>
+    6:             </div>
+    7:         </div>
+    8:         <div class='field'>
+  
+app/views/calendars/new.html.erb:5
+app/views/calendars/new.html.erb:2
+Started GET "/calendars/new" for ::1 at 2021-07-06 14:13:29 -0400
+  
+SyntaxError (/Users/rj/Desktop/code_stuff/MLMC/app/controllers/application_controller.rb:10: syntax error, unexpected '(', expecting `end'
+...  redirect_to '/calendars/new'(:userEvent => @userEvent)
+...                              ^
+/Users/rj/Desktop/code_stuff/MLMC/app/controllers/application_controller.rb:10: syntax error, unexpected instance variable
+...s/new'(:userEvent => @userEvent)
+...                     ^~~~~~~~~~
+):
+  
+app/controllers/application_controller.rb:10: syntax error, unexpected '(', expecting `end'
+app/controllers/application_controller.rb:10: syntax error, unexpected instance variable
+app/controllers/application_controller.rb:10: syntax error, unexpected '(', expecting `end'
+app/controllers/application_controller.rb:10: syntax error, unexpected instance variable
+app/controllers/application_controller.rb:10: syntax error, unexpected '(', expecting `end'
+app/controllers/application_controller.rb:10: syntax error, unexpected instance variable
+app/controllers/calendars_controller.rb:1:in `<main>'
+Started GET "/calendars/new" for ::1 at 2021-07-06 14:13:57 -0400
+Processing by CalendarsController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/calendars_controller.rb:7:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1967)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 2041)
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 4.4ms | Allocations: 8380)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2:     <%= simple_form_for @calendar do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: @userEvent.name, label: false, input_html: { class: 'form-style' }%>
+    6:             </div>
+    7:         </div>
+    8:         <div class='field'>
+  
+app/views/calendars/new.html.erb:5
+app/views/calendars/new.html.erb:2
+Started GET "/" for ::1 at 2021-07-06 14:14:12 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 384)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 41.7ms | Allocations: 4803)
+Completed 200 OK in 55ms (Views: 52.5ms | ActiveRecord: 0.0ms | Allocations: 6020)
+
+
+Started POST "/sessions" for ::1 at 2021-07-06 14:14:24 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "login"=>{"email"=>"r@r.com", "password"=>"[FILTERED]"}, "submit"=>"Submit"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "r@r.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 390ms (ActiveRecord: 0.8ms | Allocations: 6537)
+
+
+Started GET "/dashboard" for ::1 at 2021-07-06 14:14:25 -0400
+Processing by MlmcController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering mlmc/index.html.erb within layouts/application
+  Rendered mlmc/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 253)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 105.9ms | Allocations: 4512)
+Completed 200 OK in 118ms (Views: 110.3ms | ActiveRecord: 0.0ms | Allocations: 5661)
+
+
+Started GET "/events" for ::1 at 2021-07-06 14:14:26 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:10
+  Rendered events/index.html.erb within layouts/application (Duration: 34.5ms | Allocations: 4132)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 55.5ms | Allocations: 8408)
+Completed 200 OK in 72ms (Views: 62.6ms | ActiveRecord: 0.6ms | Allocations: 9951)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:14:27 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (2.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/calendars/new
+Completed 302 Found in 12ms (ActiveRecord: 2.3ms | Allocations: 1703)
+
+
+Started GET "/calendars/new" for ::1 at 2021-07-06 14:14:27 -0400
+Processing by CalendarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1547)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 1615)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 2061)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2:     <%= simple_form_for @calendar do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: @userEvent.name, label: false, input_html: { class: 'form-style' }%>
+    6:             </div>
+    7:         </div>
+    8:         <div class='field'>
+  
+app/views/calendars/new.html.erb:5
+app/views/calendars/new.html.erb:2
+Started GET "/calendars/new" for ::1 at 2021-07-06 14:15:32 -0400
+Processing by CalendarsController#new as HTML
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/calendars_controller.rb:7:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1666)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 1740)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 3.9ms | Allocations: 7873)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2:     <%= simple_form_for @calendar do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: @userEvent.name, label: false, input_html: { class: 'form-style' }%>
+    6:             </div>
+    7:         </div>
+    8:         <div class='field'>
+  
+app/views/calendars/new.html.erb:5
+app/views/calendars/new.html.erb:2
+Started GET "/" for ::1 at 2021-07-06 14:15:57 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 141)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 60.8ms | Allocations: 4426)
+Completed 200 OK in 63ms (Views: 62.3ms | Allocations: 5205)
+
+
+Started POST "/sessions" for ::1 at 2021-07-06 14:16:06 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "login"=>{"email"=>"r@r.com", "password"=>"[FILTERED]"}, "submit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "r@r.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 364ms (ActiveRecord: 3.0ms | Allocations: 8073)
+
+
+Started GET "/dashboard" for ::1 at 2021-07-06 14:16:06 -0400
+Processing by MlmcController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering mlmc/index.html.erb within layouts/application
+  Rendered mlmc/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 122)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 99.4ms | Allocations: 4397)
+Completed 200 OK in 105ms (Views: 103.6ms | ActiveRecord: 0.0ms | Allocations: 5176)
+
+
+Started GET "/events" for ::1 at 2021-07-06 14:16:08 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:10
+  Rendered events/index.html.erb within layouts/application (Duration: 43.2ms | Allocations: 4355)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 62.5ms | Allocations: 8632)
+Completed 200 OK in 68ms (Views: 57.6ms | ActiveRecord: 7.9ms | Allocations: 9747)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:09 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 15ms (ActiveRecord: 1.1ms | Allocations: 1803)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:09 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 9ms (ActiveRecord: 0.4ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:09 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 61ms (ActiveRecord: 0.5ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:09 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 73ms (ActiveRecord: 0.4ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:09 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 53ms (ActiveRecord: 0.5ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:09 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:09 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 8ms (ActiveRecord: 0.4ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:09 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:09 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 10ms (ActiveRecord: 0.5ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 23ms (ActiveRecord: 2.4ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 7ms (ActiveRecord: 0.3ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 11ms (ActiveRecord: 0.7ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 13ms (ActiveRecord: 1.2ms | Allocations: 1372)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 31ms (ActiveRecord: 0.4ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 30ms (ActiveRecord: 0.4ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 10ms (ActiveRecord: 0.4ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 9ms (ActiveRecord: 0.4ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms | Allocations: 1370)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:16:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 8ms (ActiveRecord: 0.6ms | Allocations: 1370)
+
+
+Started GET "/" for ::1 at 2021-07-06 14:16:54 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 390)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 305.0ms | Allocations: 4825)
+Completed 200 OK in 317ms (Views: 312.3ms | Allocations: 6294)
+
+
+Started POST "/sessions" for ::1 at 2021-07-06 14:17:00 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "login"=>{"email"=>"r@r.com", "password"=>"[FILTERED]"}, "submit"=>"Submit"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "r@r.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 417ms (ActiveRecord: 5.4ms | Allocations: 8055)
+
+
+Started GET "/dashboard" for ::1 at 2021-07-06 14:17:01 -0400
+Processing by MlmcController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering mlmc/index.html.erb within layouts/application
+  Rendered mlmc/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 256)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 4522)
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.0ms | Allocations: 5671)
+
+
+Started GET "/events" for ::1 at 2021-07-06 14:17:02 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (6.0ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:10
+  Rendered events/index.html.erb within layouts/application (Duration: 34.5ms | Allocations: 4580)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 62.7ms | Allocations: 8856)
+Completed 200 OK in 79ms (Views: 65.9ms | ActiveRecord: 8.0ms | Allocations: 10398)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:17:03 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/calendars/new
+Completed 302 Found in 27ms (ActiveRecord: 1.1ms | Allocations: 1703)
+
+
+Started GET "/calendars/new" for ::1 at 2021-07-06 14:17:03 -0400
+Processing by CalendarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 40.1ms | Allocations: 6998)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 60.2ms | Allocations: 11164)
+Completed 200 OK in 228ms (Views: 77.3ms | ActiveRecord: 27.0ms | Allocations: 16529)
+
+
+Started GET "/calendars/new" for ::1 at 2021-07-06 14:18:35 -0400
+Processing by CalendarsController#new as HTML
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/calendars_controller.rb:7:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 16.3ms | Allocations: 1951)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 2025)
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 15.3ms | Allocations: 8843)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2:     <%= simple_form_for @calendar do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: @event.name, label: false, input_html: { class: 'form-style' }%>
+    6:             </div>
+    7:         </div>
+    8:         <div class='field'>
+  
+app/views/calendars/new.html.erb:5
+app/views/calendars/new.html.erb:2
+Started GET "/calendars/new" for ::1 at 2021-07-06 14:19:17 -0400
+Processing by CalendarsController#new as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/calendars_controller.rb:7:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 28.8ms | Allocations: 1666)
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 1740)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 3.4ms | Allocations: 7871)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2:     <%= simple_form_for @calendar do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: @event.name, label: false, input_html: { class: 'form-style' }%>
+    6:             </div>
+    7:         </div>
+    8:         <div class='field'>
+  
+app/views/calendars/new.html.erb:5
+app/views/calendars/new.html.erb:2
+Started GET "/" for ::1 at 2021-07-06 14:19:22 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 384)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 50.9ms | Allocations: 4840)
+Completed 200 OK in 69ms (Views: 66.3ms | ActiveRecord: 0.0ms | Allocations: 6057)
+
+
+Started POST "/sessions" for ::1 at 2021-07-06 14:19:28 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "login"=>{"email"=>"r@r.com", "password"=>"[FILTERED]"}, "submit"=>"Submit"}
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "r@r.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 337ms (ActiveRecord: 8.6ms | Allocations: 6929)
+
+
+Started GET "/dashboard" for ::1 at 2021-07-06 14:19:28 -0400
+Processing by MlmcController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering mlmc/index.html.erb within layouts/application
+  Rendered mlmc/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 253)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 43.5ms | Allocations: 4511)
+Completed 200 OK in 54ms (Views: 51.0ms | ActiveRecord: 0.0ms | Allocations: 5660)
+
+
+Started GET "/events" for ::1 at 2021-07-06 14:19:30 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:10
+  Rendered events/index.html.erb within layouts/application (Duration: 146.6ms | Allocations: 4563)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 174.4ms | Allocations: 8856)
+Completed 200 OK in 194ms (Views: 180.6ms | ActiveRecord: 1.8ms | Allocations: 10399)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:19:31 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.8ms | Allocations: 2036)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/events_controller.rb:20:in `show'
+Started GET "/events/1" for ::1 at 2021-07-06 14:32:53 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mEvent Load (20.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/calendars/new
+Completed 302 Found in 162ms (ActiveRecord: 23.2ms | Allocations: 11395)
+
+
+Started GET "/calendars/new" for ::1 at 2021-07-06 14:32:54 -0400
+Processing by CalendarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 1687)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 1761)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 0.0ms | Allocations: 6193)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2:     <%= simple_form_for @calendar do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: @event.name, label: false, input_html: { class: 'form-style' }%>
+    6:             </div>
+    7:         </div>
+    8:         <div class='field'>
+  
+app/views/calendars/new.html.erb:5
+app/views/calendars/new.html.erb:2
+Started GET "/calendars/new" for ::1 at 2021-07-06 14:34:42 -0400
+Processing by CalendarsController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/calendars_controller.rb:7:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1667)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 1741)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 3.3ms | Allocations: 7875)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2:     <%= simple_form_for @calendar do |f|%>
+    3:         <div class='field form-group'>
+    4:             <div class='control' >
+    5:                   <%=f.input :name, placeholder: @event.name, label: false, input_html: { class: 'form-style' }%>
+    6:             </div>
+    7:         </div>
+    8:         <div class='field'>
+  
+app/views/calendars/new.html.erb:5
+app/views/calendars/new.html.erb:2
+Started GET "/" for ::1 at 2021-07-06 14:34:47 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 141)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 4426)
+Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 0.0ms | Allocations: 5207)
+
+
+Started POST "/sessions" for ::1 at 2021-07-06 14:35:11 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "login"=>{"email"=>"r@r.com", "password"=>"[FILTERED]"}, "submit"=>"Submit"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "r@r.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 376ms (ActiveRecord: 1.5ms | Allocations: 6930)
+
+
+Started GET "/dashboard" for ::1 at 2021-07-06 14:35:11 -0400
+Processing by MlmcController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering mlmc/index.html.erb within layouts/application
+  Rendered mlmc/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.2ms | Allocations: 4683)
+Completed 200 OK in 30ms (Views: 28.0ms | ActiveRecord: 0.0ms | Allocations: 6025)
+
+
+Started GET "/events" for ::1 at 2021-07-06 14:35:13 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.9ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:10
+  Rendered events/index.html.erb within layouts/application (Duration: 34.3ms | Allocations: 4540)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 59.1ms | Allocations: 8816)
+Completed 200 OK in 76ms (Views: 67.7ms | ActiveRecord: 3.0ms | Allocations: 10358)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:35:14 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/calendars/1?event=1
+Completed 302 Found in 12ms (ActiveRecord: 0.6ms | Allocations: 1812)
+
+
+Started GET "/calendars/1?event=1" for ::1 at 2021-07-06 14:35:14 -0400
+Processing by CalendarsController#show as HTML
+  Parameters: {"event"=>"1", "id"=>"1"}
+  [1m[36mCalendar Load (17.4ms)[0m  [1m[34mSELECT "calendars".* FROM "calendars" WHERE "calendars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/calendars_controller.rb:18:in `show'
+Completed 404 Not Found in 55ms (ActiveRecord: 17.4ms | Allocations: 1339)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Calendar with 'id'=1):
+  
+app/controllers/calendars_controller.rb:18:in `show'
+Started GET "/events" for ::1 at 2021-07-06 14:36:55 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/events/index.html.erb:10
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:10
+  Rendered events/index.html.erb within layouts/application (Duration: 27.0ms | Allocations: 5382)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 98.0ms | Allocations: 9654)
+Completed 200 OK in 105ms (Views: 100.2ms | ActiveRecord: 4.4ms | Allocations: 10985)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:36:58 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/calendars/new
+Completed 302 Found in 114ms (ActiveRecord: 5.8ms | Allocations: 7433)
+
+
+Started GET "/calendars/new" for ::1 at 2021-07-06 14:36:58 -0400
+Processing by CalendarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 45.0ms | Allocations: 7004)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 68.5ms | Allocations: 11161)
+Completed 200 OK in 96ms (Views: 71.3ms | ActiveRecord: 1.2ms | Allocations: 16525)
+
+
+Started GET "/calendars/new" for ::1 at 2021-07-06 14:38:13 -0400
+Processing by CalendarsController#new as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/calendars_controller.rb:7:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 26.7ms | Allocations: 6674)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 46.3ms | Allocations: 10840)
+Completed 200 OK in 74ms (Views: 48.9ms | ActiveRecord: 1.4ms | Allocations: 16982)
+
+
+Started GET "/calendars/new" for ::1 at 2021-07-06 14:38:39 -0400
+Processing by CalendarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 39.8ms | Allocations: 5932)
+Started GET "/events" for ::1 at 2021-07-06 14:38:39 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:10
+  Rendered events/index.html.erb within layouts/application (Duration: 31.7ms | Allocations: 4313)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 150.6ms | Allocations: 20527)
+Completed 200 OK in 157ms (Views: 155.6ms | ActiveRecord: 0.0ms | Allocations: 21070)
+
+
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 84.4ms | Allocations: 10095)
+Completed 200 OK in 93ms (Views: 86.8ms | ActiveRecord: 1.6ms | Allocations: 11184)
+
+
+Started GET "/events/1" for ::1 at 2021-07-06 14:38:42 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 2.4ms | Allocations: 10542)
+
+
+  
+NameError (undefined local variable or method `calendar' for #<EventsController:0x00000000036678>
+Did you mean?  calendar_url):
+  
+app/controllers/events_controller.rb:20:in `show'
+Started GET "/events/1" for ::1 at 2021-07-06 14:39:41 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Redirected to http://localhost:3000/calendars/1
+Completed 302 Found in 56ms (ActiveRecord: 4.2ms | Allocations: 12329)
+
+
+Started GET "/calendars/1" for ::1 at 2021-07-06 14:39:41 -0400
+Processing by CalendarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCalendar Load (2.8ms)[0m  [1m[34mSELECT "calendars".* FROM "calendars" WHERE "calendars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/calendars_controller.rb:18:in `show'
+Completed 404 Not Found in 23ms (ActiveRecord: 5.5ms | Allocations: 2696)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Calendar with 'id'=1):
+  
+app/controllers/calendars_controller.rb:18:in `show'
+Started GET "/calendars/1" for ::1 at 2021-07-06 14:48:52 -0400
+Processing by CalendarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/calendars_controller.rb:18:in `show'
+  [1m[36mCalendar Load (0.7ms)[0m  [1m[34mSELECT "calendars".* FROM "calendars" WHERE "calendars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/calendars_controller.rb:18:in `show'
+Completed 404 Not Found in 21ms (ActiveRecord: 1.3ms | Allocations: 3328)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Calendar with 'id'=1):
+  
+app/controllers/calendars_controller.rb:18:in `show'
+Started GET "/calendars/1" for ::1 at 2021-07-10 13:08:28 -0400
+Processing by CalendarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/calendars_controller.rb:18:in `show'
+  [1m[36mCalendar Load (0.2ms)[0m  [1m[34mSELECT "calendars".* FROM "calendars" WHERE "calendars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/calendars_controller.rb:18:in `show'
+Completed 404 Not Found in 25ms (ActiveRecord: 1.6ms | Allocations: 3326)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Calendar with 'id'=1):
+  
+app/controllers/calendars_controller.rb:18:in `show'
+Started GET "/calendars/new" for ::1 at 2021-07-10 13:08:31 -0400
+Processing by CalendarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 19.0ms | Allocations: 6995)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 47.4ms | Allocations: 11332)
+Completed 200 OK in 58ms (Views: 49.8ms | ActiveRecord: 0.0ms | Allocations: 15793)
+
+
+Started GET "/calendars" for ::1 at 2021-07-10 13:08:31 -0400
+Processing by CalendarsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/index.html.erb within layouts/application
+  Rendered calendars/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 96)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 4162)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4800)
+
+
+Started GET "/calendars/new" for ::1 at 2021-07-10 13:08:32 -0400
+Processing by CalendarsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calendars/new.html.erb within layouts/application
+  Rendered calendars/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 5929)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 9872)
+Completed 200 OK in 22ms (Views: 18.5ms | ActiveRecord: 0.0ms | Allocations: 10338)
+
+
+Started GET "/" for ::1 at 2021-07-10 13:08:32 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 385)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 4653)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 5862)
+
+
+Started POST "/sessions" for ::1 at 2021-07-10 13:08:38 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "login"=>{"email"=>"r@r.com", "password"=>"[FILTERED]"}, "submit"=>"Submit"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "r@r.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 273ms (ActiveRecord: 0.9ms | Allocations: 6478)
+
+
+Started GET "/dashboard" for ::1 at 2021-07-10 13:08:39 -0400
+Processing by MlmcController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering mlmc/index.html.erb within layouts/application
+  Rendered mlmc/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 253)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4511)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 5660)
+
+
+Started GET "/events" for ::1 at 2021-07-10 13:08:40 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:10
+  Rendered events/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 4132)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 8408)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.6ms | Allocations: 9951)
+
+
+Started GET "/events/1" for ::1 at 2021-07-10 13:08:41 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms | Allocations: 2107)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, Event passed.):
+  
+app/controllers/application_controller.rb:10:in `addEvent'
+app/controllers/events_controller.rb:20:in `show'
+Started GET "/" for ::1 at 2021-07-20 11:54:34 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 665)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 141.4ms | Allocations: 9685)
+Completed 200 OK in 226ms (Views: 149.1ms | ActiveRecord: 0.0ms | Allocations: 13459)
+
+
+Started POST "/sessions" for ::1 at 2021-07-20 11:54:40 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "login"=>{"email"=>"r@r.com", "password"=>"[FILTERED]"}, "submit"=>"Submit"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "r@r.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 295ms (ActiveRecord: 1.3ms | Allocations: 9149)
+
+
+Started GET "/dashboard" for ::1 at 2021-07-20 11:54:40 -0400
+Processing by MlmcController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering mlmc/index.html.erb within layouts/application
+  Rendered mlmc/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 276)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 4536)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.0ms | Allocations: 5688)
+
+
+Started GET "/events" for ::1 at 2021-07-20 11:54:42 -0400
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:10
+  Rendered events/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 4736)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | Allocations: 9012)
+Completed 200 OK in 34ms (Views: 30.0ms | ActiveRecord: 1.2ms | Allocations: 10555)
+
+
+Started GET "/events/1" for ::1 at 2021-07-20 11:54:43 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:17:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `addEvent'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:12:in `addEvent'
+  [1m[36mCalendar Create (8.5ms)[0m  [1m[32mINSERT INTO "calendars" ("id", "name", "date", "time", "description", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Diapers"], ["date", "3/22"], ["time", "5"], ["description", "something"], ["created_at", "2021-06-25 20:14:28.659810"], ["updated_at", "2021-06-25 20:14:28.659810"], ["user_id", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `addEvent'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:12:in `addEvent'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 126)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 4283)
+Completed 200 OK in 82ms (Views: 12.2ms | ActiveRecord: 11.3ms | Allocations: 18680)
+
+
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCalendar Load (0.2ms)[0m  [1m[34mSELECT "calendars".* FROM "calendars"[0m

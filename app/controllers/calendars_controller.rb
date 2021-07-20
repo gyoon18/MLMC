@@ -25,7 +25,7 @@ class CalendarsController < ApplicationController
   def update
     @calendar = Calendar.find(params[:id])
 
-    if @calendar.update(opportunity_params)
+    if @calendar.update(calendar_params)
       redirect_to '/dashboard', :notice => "You calendar has been updated."
     else
       render 'edit'

@@ -10,18 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_07_05_171352) do
-
-  create_table "calendars", force: :cascade do |t|
-    t.string "name"
-    t.string "date"
-    t.string "time"
-    t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-=======
 ActiveRecord::Schema.define(version: 2021_07_06_013351) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -50,7 +38,16 @@ ActiveRecord::Schema.define(version: 2021_07_06_013351) do
     t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
->>>>>>> 3d28d49d0b34f03bf681f480d1c683a135b26270
+  end
+
+  create_table "calendars", force: :cascade do |t|
+    t.string "name"
+    t.string "date"
+    t.string "time"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "events", force: :cascade do |t|

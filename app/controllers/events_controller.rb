@@ -15,9 +15,10 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    if current_user
-      puts 'working'
-      return
+    @user = current_user
+    if @user != nil
+      addEvent(@event)
+    return
     end
   end
 
@@ -28,7 +29,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
 
-    if @event.update(opportunity_params)
+    if @event.update(event_params)
       redirect_to '/dashboard', :notice => "You event has been updated."
     else
       render 'edit'

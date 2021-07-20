@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   def addEvent(event)
     @event = event
-    puts current_user.id
+    @calendar = Calendar.new(@event.attributes)
+    @calendar.user_id = session[:user_id]
+    @calendar.save
   end
 end
