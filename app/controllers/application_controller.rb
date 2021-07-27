@@ -10,5 +10,14 @@ class ApplicationController < ActionController::Base
     @calendar = Calendar.new(@event.attributes)
     @calendar.user_id = session[:user_id]
     @calendar.save
+    redirect_to '/calendars'
+  end
+
+  def addGroup(group)
+    @group = group
+    @usergroup = UserGroup.new(@group.attributes)
+    @usergroup.user_id = session[:user_id]
+    @usergroup.save
+    redirect_to '/user_groups'
   end
 end

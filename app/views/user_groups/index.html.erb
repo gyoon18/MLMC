@@ -7,12 +7,12 @@
       <th scope="col">Description</th>
     </tr>
   </thead>
-  <% @calendar.each do |calendar| %>
+  <% @usergroup.each do |group| %>
       <tr>
-          <td scope="row"><%= calendar.name%></td>
-          <td><%= calendar.date%></td>
-          <td><%= calendar.time%></td>
-          <td><%= calendar.description%></td>
+          <td scope="row"><%= group.name%></td>
+          <td><%= group.date%></td>
+          <td><%= group.time%></td>
+          <td><%= group.description%></td>
       </tr>
   <%end%>
 </table>

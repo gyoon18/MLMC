@@ -1,6 +1,6 @@
 class CalendarsController < ApplicationController
   def index
-    @calendar = Calendar.all
+    @calendar = Calendar.where(:user_id => session[:user_id]).order("created_at DESC")
   end
 
   def new
